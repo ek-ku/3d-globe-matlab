@@ -16,7 +16,10 @@ run('globe_data.m')
 % Downsampling by n keeps every n-th cell
 % n = 120 reduces the grid from 15 arc-seconds to 0.5° resolution
 
-n = 120; 
+n = 120; % 0.5° resolution
+%n = 60; % 0.25° resolution
+%n = 30; % 0.125° resolution
+res_deg = 15*n/3600;
 
 alat = lat(1:n:end,:);
 alon = lon(1:n:end,:);
@@ -54,7 +57,8 @@ run('globe_cmap.m')
 %% Plot globe (meters)
 
 % Exaggerate the elevation
-exag = 50;
+%exag = 50;
+exag = 20;
 
 % Earth radius (m)
 R = 6371000;
@@ -77,11 +81,11 @@ s1 = surf(x1,y1,z1,ele_shore);
 set(s1,'edgecolor','none');
 shading interp
 
-title(['Shaded-relief globe with shoreline at ',num2str(shore),' m depth'])
+title(sprintf('Shaded-relief globe (%.2f°) with shoreline at %d m depth', res_deg, shore))
 
 % change viewing angle (-145,0 for Australia)
-%view(-145,0) % Australia
-view(100,20) % Europe
+view(-145,0) % Australia
+%view(100,20) % Europe
 
 % add lighting to globe
 lighting gouraud
@@ -103,7 +107,7 @@ set(gca,'XColor','none','YColor','none','ZColor','none')
 
 %% Save figures
 
-print(fig2,['IMG/globe_',num2str(shore),'m'],'-dtiff','-r300');
+print(fig2,['IMG/globe_',num2str(shore),'m_n',num2str(n)],'-dtiff','-r300');
 %--------------------------------
 
 
