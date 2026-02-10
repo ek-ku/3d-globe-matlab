@@ -1,0 +1,15 @@
+# MATLAB temporary files
+*.asv
+*.autosave
+*.m~
+*.slxc
+*.mex*
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Large outputs
+OUTPUT/
+*.stl
