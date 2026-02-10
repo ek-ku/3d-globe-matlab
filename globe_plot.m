@@ -1,4 +1,4 @@
-%% Plot a shaded relief 3D globe with adjustable sea-level offset
+%% Plot a shaded-relief 3D globe with adjustable shoreline (sea-level offset)
 %
 %  Kiki Kuijjer
 %  February 2026
@@ -10,16 +10,6 @@ clear, clc;
 
 run('globe_data.m')
 
-% globe_data.m loads variables:
-%   lon        : longitude coordinates (degrees)
-%   lat        : latitude coordinates (degrees)
-%   elevation  : elevation/bathymetry values (meters)
-%
-% Data source:
-%   GEBCO_2024 Grid (global terrain model for ocean + land)
-%   - 15 arc-second interval grid (15")
-%   - 43200 rows x 86400 columns
-%   - pixel-centre registered (values represent cell-centre elevations)
 %--------------------------------
 
 %% Reduce data resolution
@@ -87,7 +77,7 @@ s1 = surf(x1,y1,z1,ele_shore);
 set(s1,'edgecolor','none');
 shading interp
 
-title(['Textured globe with shoreline at ',num2str(shore),' m depth'])
+title(['Shaded-relief globe with shoreline at ',num2str(shore),' m depth'])
 
 % change viewing angle (-145,0 for Australia)
 %view(-145,0) % Australia
