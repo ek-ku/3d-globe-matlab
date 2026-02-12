@@ -8,12 +8,9 @@ This project visualises global bathymetry and topography on a spherical Earth mo
 
 ## Files
 
-- `globe_plot.m`  
+- `globe.m`  
   Plot a shaded-relief 3D globe with adjustable sea level.  
-  Saves a MATLAB figure and PNG image.
-
-- `globe_write_stl.m`  
-  Generate a watertight globe mesh and export an STL for 3D printing.
+  Generate a globe mesh and export an STL for 3D printing.
 
 - `globe_data.m`  
   Loads GEBCO longitude, latitude, and elevation data.
@@ -42,16 +39,10 @@ or update the file path inside `globe_data.m`.
 In MATLAB, set your working directory to this repository and run:
 
 ```matlab
-globe_plot
+globe
 ```
 
-to generate a visualisation, or:
-
-```matlab
-globe_write_stl
-```
-
-to export a printable STL globe.
+to generate a visualisation and to export a printable STL globe.
 
 Adjust parameters inside the scripts to control:
 
@@ -62,7 +53,7 @@ Adjust parameters inside the scripts to control:
 
 ## Output
 
-- 3D visualisation figures (PNG / MATLAB `.fig`)
+- 3D visualisation figures
 - STL files for 3D printing
 
 ## Notes
